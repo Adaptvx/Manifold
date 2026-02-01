@@ -9,8 +9,8 @@ local Path = env.WPM:Import("wpm_modules\\path")
 env.NAME = "Manifold"
 env.ICON = Path.Root .. "\\Art\\Icon\\Icon.png"
 env.ICON_ALT = Path.Root .. "\\Art\\Icon\\IconAlt.png"
-env.VERSION_STRING = "Alpha 8"
-env.VERSION_NUMBER = 000080
+env.VERSION_STRING = "Alpha 9"
+env.VERSION_NUMBER = 000090
 env.DEBUG_MODE = false
 
 
@@ -53,7 +53,13 @@ do
         LootAlertPopup = true,
 
         -- Events
-        MidnightPrepatch = true
+        MidnightPrepatch = true,
+
+        -- Achievements
+        AchievementLink = true,
+
+        -- Transmog
+        DressingRoom = true,
     }
     local DB_GLOBAL_PERSISTENT_DEFAULTS = {}
     local DB_LOCAL_DEFAULTS             = {}

@@ -105,6 +105,16 @@ L["Modules - Events - MidnightPrepatch - WeeklyQuests - Tooltip - Available"] = 
 L["Modules - Events - MidnightPrepatch - WeeklyQuests - Tooltip - Hint"] = "<Click to Track Quest Giver>"
 L["Modules - Events - MidnightPrepatch - Event - Tooltip - Hint"] = "<Click to Open World Map>"
 
+L["Modules - Achievements"] = "Achievements"
+L["Modules - Achievements - AchievementLink"] = "Achievement Link"
+L["Modules - Achievements - AchievementLink - Description"] = "Shift-click on achivement links to open them in the achievement UI."
+
+L["Modules - Transmog"] = "Transmog"
+L["Modules - Transmog - DressingRoom"] = "Dressing Room"
+L["Modules - Transmog - DressingRoom - Description"] = "Allows you to move and resize the dressing room frame."
+
 -- Contributors
 L["Contributors - huchang47"] = "huchang47"
 L["Contributors - huchang47 - Description"] = "Translator — Simplified Chinese & Traditional Chinese"
+L["Contributors - ZamestoTV"] = "ZamestoTV"
+L["Contributors - ZamestoTV - Description"] = "Translator — Russian"

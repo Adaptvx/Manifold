@@ -1,4 +1,7 @@
--- Translator ZamestoTV
+-- ♡ Translation // ZamestoTV
+
+
+
 if GetLocale() ~= "ruRU" then return end
 
 local env = select(2, ...)
@@ -102,6 +105,16 @@ L["Modules - Events - MidnightPrepatch - WeeklyQuests - Tooltip - Available"] = 
 L["Modules - Events - MidnightPrepatch - WeeklyQuests - Tooltip - Hint"] = "<Клик — Отслеживать дающего задание>"
 L["Modules - Events - MidnightPrepatch - Event - Tooltip - Hint"] = "<Клик — Открыть карту мира>"
 
+L["Modules - Achievements"] = "Achievements"
+L["Modules - Achievements - AchievementLink"] = "Achievement Link"
+L["Modules - Achievements - AchievementLink - Description"] = "Shift-click on achivement links to open them in the achievement UI."
+
+L["Modules - Transmog"] = "Transmog"
+L["Modules - Transmog - DressingRoom"] = "Dressing Room"
+L["Modules - Transmog - DressingRoom - Description"] = "Allows you to move and resize the dressing room frame."
+
 -- Contributors
 L["Contributors - huchang47"] = "huchang47"
 L["Contributors - huchang47 - Description"] = "Переводчик — упрощённый китайский и традиционный китайский"
+L["Contributors - ZamestoTV"] = "ZamestoTV"
+L["Contributors - ZamestoTV - Description"] = "Translator — Russian"

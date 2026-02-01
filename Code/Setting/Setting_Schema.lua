@@ -226,6 +226,50 @@ do -- Schema
             }
         },
         {
+            widgetName = L["Modules - Achievements"],
+            widgetType = Setting_Enum.WidgetType.Tab,
+            children   = {
+                {
+                    widgetName       = L["Modules - Achievements"],
+                    widgetType       = Setting_Enum.WidgetType.Title,
+                    widgetTitle_info = Setting_Define.TitleInfo{ imagePath = GetIcon("List"), text = L["Modules - Achievements"], subtext = L["Config - Modules - WIP"] }
+                },
+                {
+                    widgetType = Setting_Enum.WidgetType.Container,
+                    children   = {
+                        {
+                            widgetName        = L["Modules - Achievements - AchievementLink"],
+                            widgetDescription = Setting_Define.Descriptor{ imageType = Setting_Enum.ImageType.Large, imagePath = GetModulePreviewImage("AchievementLink"), description = L["Modules - Achievements - AchievementLink - Description"] },
+                            widgetType        = Setting_Enum.WidgetType.CheckButton,
+                            key               = "AchievementLink"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            widgetName = L["Modules - Transmog"],
+            widgetType = Setting_Enum.WidgetType.Tab,
+            children   = {
+                {
+                    widgetName       = L["Modules - Transmog"],
+                    widgetType       = Setting_Enum.WidgetType.Title,
+                    widgetTitle_info = Setting_Define.TitleInfo{ imagePath = GetIcon("List"), text = L["Modules - Transmog"], subtext = L["Config - Modules - WIP"] }
+                },
+                {
+                    widgetType = Setting_Enum.WidgetType.Container,
+                    children   = {
+                        {
+                            widgetName        = L["Modules - Transmog - DressingRoom"],
+                            widgetDescription = Setting_Define.Descriptor{ imageType = Setting_Enum.ImageType.Large, imagePath = GetModulePreviewImage("DressingRoom"), description = L["Modules - Transmog - DressingRoom - Description"] },
+                            widgetType        = Setting_Enum.WidgetType.CheckButton,
+                            key               = "DressingRoom"
+                        }
+                    }
+                }
+            }
+        },
+        {
             widgetName         = L["Config - About"],
             widgetType         = Setting_Enum.WidgetType.Tab,
             widgetTab_isFooter = true,
@@ -244,6 +288,12 @@ do -- Schema
                             widgetName        = L["Contributors - huchang47"],
                             widgetType        = Setting_Enum.WidgetType.Text,
                             widgetDescription = Setting_Define.Descriptor{ description = L["Contributors - huchang47 - Description"] },
+                            widgetTransparent = true
+                        },
+                        {
+                            widgetName        = L["Contributors - ZamestoTV"],
+                            widgetType        = Setting_Enum.WidgetType.Text,
+                            widgetDescription = Setting_Define.Descriptor{ description = L["Contributors - ZamestoTV - Description"] },
                             widgetTransparent = true
                         }
                     }

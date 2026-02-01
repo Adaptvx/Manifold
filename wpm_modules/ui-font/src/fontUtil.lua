@@ -1,3 +1,4 @@
+local addonName = select(1, ...)
 local env = select(2, ...)
 local UIFont_FontUtil = env.WPM:New("wpm_modules\\ui-font\\font-util")
 
@@ -24,7 +25,7 @@ local undefinedFontId = 0
 function UIFont_FontUtil:CreateFontObject(name)
     if name == nil then
         undefinedFontId = undefinedFontId + 1
-        name = "UIFont_" .. undefinedFontId
+        name = addonName .. "Font_" .. undefinedFontId
     end
 
     local fontObject = CreateFont(name)

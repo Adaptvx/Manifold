@@ -1,11 +1,11 @@
 -- ♡ Translation // huchang47
 
 
+
 if GetLocale() ~= "zhTW" then return end
 
 local env = select(2, ...)
 local L = env.L
-
 
 -- Keybinds
 BINDING_HEADER_MANIFOLD = "Manifold-萬象"
@@ -42,6 +42,7 @@ L["Config - About - Developer - AdaptiveX"] = "AdaptiveX"
 -- Dashboard
 L["Dashboard - Activated"] = "已啟動"
 L["Dashboard - Deactivated"] = "已停用"
+L["Dashboard - New"] = "New"
 
 -- Modules
 L["Modules - Housing"] = "房屋"
@@ -97,12 +98,23 @@ L["Modules - Events - MidnightPrepatch - WeeklyQuests - Available"] = " 可完�
 L["Modules - Events - MidnightPrepatch - WeeklyQuests - CompleteIntroQuestline"] = "完成主線任務解鎖"
 L["Modules - Events - MidnightPrepatch - WeeklyQuests - Tooltip - Title"] = "周常任務"
 L["Modules - Events - MidnightPrepatch - WeeklyQuests - Tooltip - Reset"] = "重置時間：%s"
+L["Modules - Events - MidnightPrepatch - WeeklyQuests - Tooltip - Completed"] = "Completed"
 L["Modules - Events - MidnightPrepatch - WeeklyQuests - Tooltip - Complete"] = "已完成"
 L["Modules - Events - MidnightPrepatch - WeeklyQuests - Tooltip - InProgress"] = "進行中"
 L["Modules - Events - MidnightPrepatch - WeeklyQuests - Tooltip - Available"] = "可完成"
 L["Modules - Events - MidnightPrepatch - WeeklyQuests - Tooltip - Hint"] = "<點擊追蹤任務發佈者>"
 L["Modules - Events - MidnightPrepatch - Event - Tooltip - Hint"] = "<點擊打開世界地圖>"
 
+L["Modules - Achievements"] = "Achievements"
+L["Modules - Achievements - AchievementLink"] = "Achievement Link"
+L["Modules - Achievements - AchievementLink - Description"] = "Shift-click on achivement links to open them in the achievement UI."
+
+L["Modules - Transmog"] = "Transmog"
+L["Modules - Transmog - DressingRoom"] = "Dressing Room"
+L["Modules - Transmog - DressingRoom - Description"] = "Allows you to move and resize the dressing room frame."
+
 -- Contributors
 L["Contributors - huchang47"] = "huchang47"
 L["Contributors - huchang47 - Description"] = "翻譯 — 簡體中文 & 正體中文"
+L["Contributors - ZamestoTV"] = "ZamestoTV"
+L["Contributors - ZamestoTV - Description"] = "Translator — Russian"

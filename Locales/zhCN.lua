@@ -1,11 +1,11 @@
 -- ♡ Translation // huchang47
 
 
+
 if GetLocale() ~= "zhCN" then return end
 
 local env = select(2, ...)
 local L = env.L
-
 
 -- Keybinds
 BINDING_HEADER_MANIFOLD = "Manifold-万象"
@@ -105,6 +105,16 @@ L["Modules - Events - MidnightPrepatch - WeeklyQuests - Tooltip - Available"] = 
 L["Modules - Events - MidnightPrepatch - WeeklyQuests - Tooltip - Hint"] = "<点击追踪任务发布者>"
 L["Modules - Events - MidnightPrepatch - Event - Tooltip - Hint"] = "<点击打开世界地图>"
 
+L["Modules - Achievements"] = "Achievements"
+L["Modules - Achievements - AchievementLink"] = "Achievement Link"
+L["Modules - Achievements - AchievementLink - Description"] = "Shift-click on achivement links to open them in the achievement UI."
+
+L["Modules - Transmog"] = "Transmog"
+L["Modules - Transmog - DressingRoom"] = "Dressing Room"
+L["Modules - Transmog - DressingRoom - Description"] = "Allows you to move and resize the dressing room frame."
+
 -- Contributors
 L["Contributors - huchang47"] = "huchang47"
 L["Contributors - huchang47 - Description"] = "翻译 — 简体中文 & 繁体中文"
+L["Contributors - ZamestoTV"] = "ZamestoTV"
+L["Contributors - ZamestoTV - Description"] = "Translator — Russian"
