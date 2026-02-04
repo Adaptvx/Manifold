@@ -106,16 +106,16 @@ L["Modules - Events - MidnightPrepatch - WeeklyQuests - Tooltip - Available"] = 
 L["Modules - Events - MidnightPrepatch - WeeklyQuests - Tooltip - Hint"] = "<Клик — Отслеживать дающего задание>"
 L["Modules - Events - MidnightPrepatch - Event - Tooltip - Hint"] = "<Клик — Открыть карту мира>"
 
-L["Modules - Achievements"] = "Achievements"
-L["Modules - Achievements - AchievementLink"] = "Achievement Link"
-L["Modules - Achievements - AchievementLink - Description"] = "Ctrl-click on achivement links to open them in the achievement UI."
+L["Modules - Achievements"] = "Достижения"
+L["Modules - Achievements - AchievementLink"] = "Ссылка на достижение"
+L["Modules - Achievements - AchievementLink - Description"] = "Нажмите Ctrl+клик по ссылкам достижений, чтобы открыть их в пользовательском интерфейсе достижений."
 
-L["Modules - Transmog"] = "Transmog"
-L["Modules - Transmog - DressingRoom"] = "Dressing Room"
-L["Modules - Transmog - DressingRoom - Description"] = "Allows you to move and resize the dressing room frame."
+L["Modules - Transmog"] = "Трансмогрификация"
+L["Modules - Transmog - DressingRoom"] = "Гардеробная"
+L["Modules - Transmog - DressingRoom - Description"] = "Позволяет перемещать и изменять размер окна гардеробной."
 
 -- Contributors
 L["Contributors - huchang47"] = "huchang47"
-L["Contributors - huchang47 - Description"] = "Переводчик — упрощённый китайский и традиционный китайский"
+L["Contributors - huchang47 - Description"] = "Переводчик — на упрощённый китайский и традиционный китайский язык"
 L["Contributors - ZamestoTV"] = "ZamestoTV"
-L["Contributors - ZamestoTV - Description"] = "Translator — Russian"
+L["Contributors - ZamestoTV - Description"] = "Переводчик — на русский язык"
