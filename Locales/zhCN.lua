@@ -43,6 +43,7 @@ L["Config - About - Developer - AdaptiveX"] = "AdaptiveX"
 L["Dashboard - Activated"] = "已激活"
 L["Dashboard - Deactivated"] = "已停用"
 L["Dashboard - New"] = "New"
+L["Dashboard - Search"] = "Search"
 
 -- Modules
 L["Modules - Housing"] = "房屋"
@@ -107,7 +108,7 @@ L["Modules - Events - MidnightPrepatch - Event - Tooltip - Hint"] = "<点击打�
 
 L["Modules - Achievements"] = "Achievements"
 L["Modules - Achievements - AchievementLink"] = "Achievement Link"
-L["Modules - Achievements - AchievementLink - Description"] = "Shift-click on achivement links to open them in the achievement UI."
+L["Modules - Achievements - AchievementLink - Description"] = "Ctrl-click on achivement links to open them in the achievement UI."
 
 L["Modules - Transmog"] = "Transmog"
 L["Modules - Transmog - DressingRoom"] = "Dressing Room"

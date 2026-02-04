@@ -12,14 +12,18 @@ local function OnLoad()
     DressUpFrame.TitleContainer:EnableMouse(true)
     DressUpFrame.TitleContainer:RegisterForDrag("LeftButton")
     DressUpFrame.TitleContainer:HookScript("OnDragStart", function(self)
-        SetCursor("Interface\\Cursor\\UI-Cursor-Move")
-        DressUpFrame:StartMoving()
-        DressUpFrame.isMoving = true
+        if DressUpFrame:IsMovable() then
+            SetCursor("Interface\\Cursor\\UI-Cursor-Move")
+            DressUpFrame:StartMoving()
+            DressUpFrame.isMoving = true
+        end
     end)
     DressUpFrame.TitleContainer:HookScript("OnDragStop", function(self)
-        ResetCursor()
-        DressUpFrame:StopMovingOrSizing()
-        DressUpFrame.isMoving = false
+        if DressUpFrame:IsMovable() then
+            ResetCursor()
+            DressUpFrame:StopMovingOrSizing()
+            DressUpFrame.isMoving = false
+        end
     end)
     DressUpFrame:HookScript("OnSizeChanged", function(self, width, height) --preserve aspect ratio when resizing
         if not IsModuleEnabled() then return end
