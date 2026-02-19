@@ -43,7 +43,7 @@ L["Config - About - Developer - AdaptiveX"] = "AdaptiveX"
 L["Dashboard - Activated"] = "Деактивировать"
 L["Dashboard - Deactivated"] = "Активировать"
 L["Dashboard - New"] = "Новый"
-L["Dashboard - Search"] = "Search"
+L["Dashboard - Search"] = "Поиск"
 
 -- Modules
 L["Modules - Housing"] = "Жильё"
@@ -106,16 +106,16 @@ L["Modules - Events - MidnightPrepatch - WeeklyQuests - Tooltip - Available"] = 
 L["Modules - Events - MidnightPrepatch - WeeklyQuests - Tooltip - Hint"] = "<Клик — Отслеживать дающего задание>"
 L["Modules - Events - MidnightPrepatch - Event - Tooltip - Hint"] = "<Клик — Открыть карту мира>"
 
-L["Modules - Achievements"] = "Achievements"
-L["Modules - Achievements - AchievementLink"] = "Achievement Link"
-L["Modules - Achievements - AchievementLink - Description"] = "Ctrl-click on achivement links to open them in the achievement UI."
+L["Modules - Achievements"] = "Достижения"
+L["Modules - Achievements - AchievementLink"] = "Ссылка на достижение"
+L["Modules - Achievements - AchievementLink - Description"] = "Используйте Ctrl+ЛКМ по ссылке, чтобы открыть её в окне достижений."
 
-L["Modules - Transmog"] = "Transmog"
-L["Modules - Transmog - DressingRoom"] = "Dressing Room"
-L["Modules - Transmog - DressingRoom - Description"] = "Allows you to move and resize the dressing room frame."
+L["Modules - Transmog"] = "Трансмогрификация"
+L["Modules - Transmog - DressingRoom"] = "Примерочная"
+L["Modules - Transmog - DressingRoom - Description"] = "Позволяет свободно перемещать и масштабировать рамку примерочной."
 
 -- Contributors
 L["Contributors - huchang47"] = "huchang47"
-L["Contributors - huchang47 - Description"] = "Переводчик — упрощённый китайский и традиционный китайский"
+L["Contributors - huchang47 - Description"] = "Переводчик — на упрощённый китайский и традиционный китайский"
 L["Contributors - ZamestoTV"] = "ZamestoTV"
-L["Contributors - ZamestoTV - Description"] = "Translator — Russian"
+L["Contributors - ZamestoTV - Description"] = "Переводчик — на русский"
