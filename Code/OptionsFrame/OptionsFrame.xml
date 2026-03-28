@@ -1,0 +1,8 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/">
+    <Script file="OptionsFrame_Preload.lua"/>
+    <Script file="OptionsFrame_Schema.lua"/>
+    <Script file="OptionsFrame_Templates.lua"/>
+    <Script file="OptionsFrame_UI.lua"/>
+    <Script file="OptionsFrame.lua"/>
+    <Script file="SettingsPanel.lua"/>
+</Ui>

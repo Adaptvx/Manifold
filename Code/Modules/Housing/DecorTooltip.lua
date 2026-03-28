@@ -1,10 +1,10 @@
 local env = select(2, ...)
 local L = env.L
 local Config = env.Config
-local Path = env.WPM:Import("wpm_modules\\path")
-local WoWClient = env.WPM:Import("wpm_modules\\wow-client")
-local GenericEnum = env.WPM:Import("wpm_modules\\generic-enum")
-local Utils_InlineIcon = env.WPM:Import("wpm_modules\\utils\\inline-icon")
+local Path = env.modules:Import("packages\\path")
+local WoWClient = env.modules:Import("packages\\wow-client")
+local GenericEnum = env.modules:Import("packages\\generic-enum")
+local Utils_InlineIcon = env.modules:Import("packages\\utils\\inline-icon")
 local function IsModuleEnabled() return Config.DBGlobal:GetVariable("DecorTooltip") == true end
 
 local IsAddOnLoaded = C_AddOns.IsAddOnLoaded
@@ -23,14 +23,14 @@ local function OnLoad()
 
     local PLACEMENT_COST_INLINE_ICON = Utils_InlineIcon.New(
         {
-            path   = Path.Root .. "\\Art\\Housing\\HouseUI.png",
+            path   = Path.Root .. "\\Art\\Housing\\HouseUI",
             width  = TEXTURE_SIZE,
             height = TEXTURE_SIZE,
             left   = ICON_COORDS.left,
             right  = ICON_COORDS.right,
             top    = ICON_COORDS.top,
             bottom = ICON_COORDS.bottom
-        }, ICON_SIZE, ICON_SIZE, 0, 0, GenericEnum.ColorRGB255.NormalText
+        }, ICON_SIZE, ICON_SIZE, 0, 0, GenericEnum.ColorRGB255.Normal
     ) .. " "
 
     local function IsSameDecor(selected, hovered)
@@ -53,7 +53,7 @@ local function OnLoad()
 
         local quality = hoveredDecorInfo.quality or catalogInfo.quality
         local qualityColor = (quality and ITEM_QUALITY_COLORS[quality]) or GenericEnum.ColorRGB01.White
-        local normalTextColor = GenericEnum.ColorRGB01.NormalText
+        local normalTextColor = GenericEnum.ColorRGB01.Normal
 
         GameTooltip:SetOwner(UIParent, "ANCHOR_CURSOR_RIGHT")
         GameTooltip:AddDoubleLine(hoveredDecorInfo.name, PLACEMENT_COST_INLINE_ICON .. catalogInfo.placementCost, qualityColor.r, qualityColor.g, qualityColor.b, normalTextColor.r, normalTextColor.g, normalTextColor.b)

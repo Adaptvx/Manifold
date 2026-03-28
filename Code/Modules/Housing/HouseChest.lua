@@ -1,6 +1,6 @@
 local env = select(2, ...)
 local Config = env.Config
-local LazyTimer = env.WPM:Import("wpm_modules\\lazy-timer")
+local LazyTimer = env.modules:Import("packages\\lazy-timer")
 local function IsModuleEnabled() return Config.DBGlobal:GetVariable("HouseChest") == true end
 
 local IsAddOnLoaded = C_AddOns.IsAddOnLoaded

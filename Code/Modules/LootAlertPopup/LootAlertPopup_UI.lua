@@ -1,8 +1,8 @@
 local env = select(2, ...)
-local UIFont = env.WPM:Import("wpm_modules\\ui-font")
-local UIKit = env.WPM:Import("wpm_modules\\ui-kit")
-local Frame, LayoutGrid, LayoutHorizontal, LayoutVertical, Text, ScrollView, LazyScrollView, ScrollBar, ScrollViewEdge, Input, LinearSlider, HitRect, List = unpack(UIKit.UI.Frames)
-local LootAlertPopup_Preload = env.WPM:Import("@\\LootAlertPopup\\Preload")
+local UIFont = env.modules:Import("packages\\ui-font")
+local UIKit = env.modules:Import("packages\\ui-kit")
+local Frame, LayoutGrid, LayoutHorizontal, LayoutVertical, Text, ScrollContainer, LazyScrollContainer, ScrollBar, ScrollContainerEdge, Input, LinearSlider, HitRect, List = unpack(UIKit.UI.Frames)
+local LootAlertPopup_Preload = env.modules:Import("@\\LootAlertPopup\\Preload")
 
 do --ManifoldLootAlertPopup
     local CONTENT_SIZE = 18
@@ -16,7 +16,7 @@ do --ManifoldLootAlertPopup
                     :id("Background", id)
                     :frameLevel(1000)
                     :size(UIKit.Define.Fill{ delta = -8 })
-                    :background(LootAlertPopup_Preload.UIDef.UIFrame),
+                    :background(LootAlertPopup_Preload.UIDEF.UIFrame),
 
                 Frame(name .. ".Main", {
                     LayoutHorizontal(name .. ".Instruction", {
@@ -24,7 +24,7 @@ do --ManifoldLootAlertPopup
                             :id("Instruction.Hint", id)
                             :frameLevel(1002)
                             :size(CONTENT_SIZE, CONTENT_SIZE)
-                            :background(LootAlertPopup_Preload.UIDef.LMB),
+                            :background(LootAlertPopup_Preload.UIDEF.LMB),
 
                         Text(name .. ".Instruction.Text")
                             :id("Instruction.Text", id)
@@ -66,7 +66,7 @@ do --ManifoldLootAlertPopup
                         :frameLevel(1002)
                         :point(UIKit.Enum.Point.Right)
                         :size(CONTENT_SIZE, CONTENT_SIZE)
-                        :background(LootAlertPopup_Preload.UIDef.Spinner)
+                        :background(LootAlertPopup_Preload.UIDEF.Spinner)
                         :backgroundColor(LootAlertPopup_Preload.PrimaryTextColor),
 
                     Frame(name .. ".Tick")
@@ -74,7 +74,7 @@ do --ManifoldLootAlertPopup
                         :frameLevel(1002)
                         :point(UIKit.Enum.Point.Right)
                         :size(CONTENT_SIZE, CONTENT_SIZE)
-                        :background(LootAlertPopup_Preload.UIDef.Tick)
+                        :background(LootAlertPopup_Preload.UIDEF.Tick)
                 })
                     :id("Main", id)
                     :frameLevel(1001)
@@ -89,6 +89,7 @@ do --ManifoldLootAlertPopup
         :parent(UIParent)
         :frameStrata(UIKit.Enum.FrameStrata.Tooltip, 999)
         :size(175, 32)
+        :clampedToScreen(true)
         :_Render()
 
     frame.Background = UIKit.GetElementById("Background", id)

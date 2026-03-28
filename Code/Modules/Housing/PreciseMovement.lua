@@ -1,7 +1,7 @@
 local env = select(2, ...)
 local L = env.L
-local CallbackRegistry = env.WPM:Import("wpm_modules\\callback-registry")
-local WoWClient = env.WPM:Import("wpm_modules\\wow-client")
+local CallbackRegistry = env.modules:Import("packages\\callback-registry")
+local WoWClient = env.modules:Import("packages\\wow-client")
 local function IsModuleEnabled() return true end
 
 local IsAddOnLoaded = C_AddOns.IsAddOnLoaded
@@ -169,7 +169,7 @@ local function OnLoad()
 
             self:SetShown(shouldShow)
             if isKeybindSet then
-                self.controlText = GetBindingKey(self.bindingKey) .. " - " .. L["Modules - Housing - PreciseMovement - MouseWheel"]
+                self.controlText = GetBindingKey(self.bindingKey) .. " - " .. L["HOUSING_PRECISE_MOVEMENT_MOUSE_WHEEL"]
                 self:UpdateInstruction()
             end
         end
@@ -186,11 +186,11 @@ local function OnLoad()
             return frame
         end
 
-        ExpertDecorInstructions.PreciseTranslateXInstruction = CreateInstruction("PreciseTranslateXInstruction", L["Modules - Housing - PreciseMovement - PreciseMoveX"], -5, "MANIFOLD_HOUSING_EXPERTDECORPRECISE_TRANSLATE_X")
-        ExpertDecorInstructions.PreciseTranslateYInstruction = CreateInstruction("PreciseTranslateYInstruction", L["Modules - Housing - PreciseMovement - PreciseMoveY"], -4, "MANIFOLD_HOUSING_EXPERTDECORPRECISE_TRANSLATE_Y")
-        ExpertDecorInstructions.PreciseTranslateZInstruction = CreateInstruction("PreciseTranslateZInstruction", L["Modules - Housing - PreciseMovement - PreciseMoveZ"], -3, "MANIFOLD_HOUSING_EXPERTDECORPRECISE_TRANSLATE_Z")
-        ExpertDecorInstructions.PreciseRotateInstruction = CreateInstruction("PreciseRotateInstruction", L["Modules - Housing - PreciseMovement - PreciseRotate"], -2, "MANIFOLD_HOUSING_EXPERTDECORPRECISE_ROTATE")
-        ExpertDecorInstructions.PreciseScaleInstruction = CreateInstruction("PreciseScaleInstruction", L["Modules - Housing - PreciseMovement - PreciseScale"], -1, "MANIFOLD_HOUSING_EXPERTDECORPRECISE_SCALE")
+        ExpertDecorInstructions.PreciseTranslateXInstruction = CreateInstruction("PreciseTranslateXInstruction", L["HOUSING_PRECISE_MOVEMENT_X"], -5, "MANIFOLD_HOUSING_EXPERTDECORPRECISE_TRANSLATE_X")
+        ExpertDecorInstructions.PreciseTranslateYInstruction = CreateInstruction("PreciseTranslateYInstruction", L["HOUSING_PRECISE_MOVEMENT_Y"], -4, "MANIFOLD_HOUSING_EXPERTDECORPRECISE_TRANSLATE_Y")
+        ExpertDecorInstructions.PreciseTranslateZInstruction = CreateInstruction("PreciseTranslateZInstruction", L["HOUSING_PRECISE_MOVEMENT_Z"], -3, "MANIFOLD_HOUSING_EXPERTDECORPRECISE_TRANSLATE_Z")
+        ExpertDecorInstructions.PreciseRotateInstruction = CreateInstruction("PreciseRotateInstruction", L["HOUSING_PRECISE_MOVEMENT_ROTATE"], -2, "MANIFOLD_HOUSING_EXPERTDECORPRECISE_ROTATE")
+        ExpertDecorInstructions.PreciseScaleInstruction = CreateInstruction("PreciseScaleInstruction", L["HOUSING_PRECISE_MOVEMENT_SCALE"], -1, "MANIFOLD_HOUSING_EXPERTDECORPRECISE_SCALE")
 
         local function UpdateInstructions()
             ExpertDecorInstructions.PreciseTranslateXInstruction:Update()

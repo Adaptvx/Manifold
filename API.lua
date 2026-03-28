@@ -1,14 +1,14 @@
 --[[
     Manifold API Documentation
 
-    `ManifoldAPI.OpenSettingUI()`
+    `ManifoldAPI.ToggleSettingsUI()`
 ]]
 
 local env = select(2, ...)
 ManifoldAPI = ManifoldAPI or {}
 
-do -- @\\Setting
-    local Setting = env.WPM:Await("@\\Setting")
-    ManifoldAPI_OpenSettingUI = Setting.OpenSettingUI
-    ManifoldAPI.OpenSettingUI = Setting.OpenSettingUI
+do -- @\\Settings
+    local OptionsFrame = env.modules:Await("@\\OptionsFrame")
+    ManifoldAPI_ToggleSettingsUI = OptionsFrame.ToggleSettingsUI
+    ManifoldAPI.ToggleSettingsUI = OptionsFrame.ToggleSettingsUI
 end

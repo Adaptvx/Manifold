@@ -1,10 +1,10 @@
 local env = select(2, ...)
 local Config = env.Config
-local CallbackRegistry = env.WPM:Import("wpm_modules\\callback-registry")
-local GenericEnum = env.WPM:Import("wpm_modules\\generic-enum")
+local CallbackRegistry = env.modules:Import("packages\\callback-registry")
+local GenericEnum = env.modules:Import("packages\\generic-enum")
 local function IsModuleEnabled() return Config.DBGlobal:GetVariable("QuestDetailTooltip") == true end
 
-local COLOR_NORMAL = GenericEnum.ColorRGB01.NormalText
+local COLOR_NORMAL = GenericEnum.ColorRGB01.Normal
 local COLOR_WHITE = GenericEnum.ColorRGB01.White
 local COLOR_GRAY = GenericEnum.ColorRGB01.Gray
 local COLOR_RED = GenericEnum.ColorRGB01.Red

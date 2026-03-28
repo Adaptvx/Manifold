@@ -1,16 +1,17 @@
 local env = select(2, ...)
-local Sound = env.WPM:Import("wpm_modules\\sound")
-local CallbackRegistry = env.WPM:Import("wpm_modules\\callback-registry")
-local UIFont = env.WPM:Import("wpm_modules\\ui-font")
-local SavedVariables = env.WPM:Import("wpm_modules\\saved-variables")
-local Path = env.WPM:Import("wpm_modules\\path")
+local Sound = env.modules:Import("packages\\sound")
+local CallbackRegistry = env.modules:Import("packages\\callback-registry")
+local UIFont = env.modules:Import("packages\\ui-font")
+local SavedVariables = env.modules:Import("packages\\saved-variables")
+local SlashCommand = env.modules:Import("packages\\slash-command")
+local Path = env.modules:Import("packages\\path")
 
 
 env.NAME = "Manifold"
-env.ICON = Path.Root .. "\\Art\\Icon\\Icon.png"
-env.ICON_ALT = Path.Root .. "\\Art\\Icon\\IconAlt.png"
-env.VERSION_STRING = "Alpha 10"
-env.VERSION_NUMBER = 000100
+env.ICON = Path.Root .. "\\Art\\Icons\\Logo"
+env.ICON_ALT = Path.Root .. "\\Art\\Icons\\Logo-White"
+env.VERSION_STRING = "0.1.1"
+env.VERSION_NUMBER = 000101
 env.DEBUG_MODE = false
 
 
@@ -38,6 +39,7 @@ do
     ---@format disable
     local DB_GLOBAL_DEFAULTS            = {
         lastLoadedVersion = nil,
+        fontPath = nil,
 
         -- Housing
         DecorMerchant = true,
@@ -52,9 +54,6 @@ do
         -- Loot
         LootAlertPopup = true,
 
-        -- Events
-        MidnightPrepatch = true,
-
         -- Achievements
         AchievementLink = true,
 
@@ -62,7 +61,13 @@ do
         DressingRoom = true,
     }
     local DB_GLOBAL_PERSISTENT_DEFAULTS = {}
-    local DB_LOCAL_DEFAULTS             = {}
+    local DB_LOCAL_DEFAULTS             = {
+        --ExperienceBarTooltip
+        ExperienceBar_Level_StartTime = nil,
+        ExperienceBar_Session_StartTime = nil,
+        ExperienceBar_Session_GainedXP = nil,
+        ExperienceBar_Session_LastXP = nil,
+    }
     local DB_LOCAL_PERSISTENT_DEFAULTS  = {}
     ---@format enable
 
@@ -92,14 +97,39 @@ do
 end
 
 
+local SlashCmdRegister = {}
+do
+    local Handlers = {}
+    do -- /manifold
+        function Handlers.HandleSlashCmd_Manifold(_, tokens)
+            ManifoldAPI_ToggleSettingsUI()
+        end
+    end
+
+    local Schema = {
+        -- /manifold
+        {
+            name     = "MANIFOLD",
+            hook     = nil,
+            command  = { "manifold" },
+            callback = Handlers.HandleSlashCmd_Manifold
+        }
+    }
+
+    function SlashCmdRegister.LoadSchema()
+        SlashCommand.AddFromSchema(Schema)
+    end
+end
+
+
 local SoundHandler = {}
 do
     local function UpdateMainSoundLayer()
-        local Setting_AudioGlobal = Config.DBGlobal:GetVariable("AudioGlobal")
+        local Settings_AudioGlobal = Config.DBGlobal:GetVariable("AudioGlobal")
 
-        if Setting_AudioGlobal == true then
+        if Settings_AudioGlobal == true then
             Sound.SetEnabled("Main", true)
-        elseif Setting_AudioGlobal == false then
+        elseif Settings_AudioGlobal == false then
             Sound.SetEnabled("Main", false)
         end
     end
@@ -117,13 +147,16 @@ do
     local function UpdateFonts()
         UIFont.CustomFont:RefreshFontList()
 
-        local selectedFontIndex = Config.DBGlobal:GetVariable("PrefFont")
-        local fontPath = UIFont.CustomFont.GetFontPathForIndex(selectedFontIndex)
+        local fontPath = Config.DBGlobal:GetVariable("fontPath")
+        if fontPath == nil or not UIFont.CustomFont.FontExists(fontPath) then
+            fontPath = UIFont.CustomFont.GetFontPathForIndex(1)
+        end
 
         UIFont.SetNormalFont(fontPath)
+        Config.DBGlobal:SetVariable("fontPath", fontPath)
     end
 
-    SavedVariables.OnChange("ManifoldDB_Global", "PrefFont", UpdateFonts)
+    SavedVariables.OnChange("ManifoldDB_Global", "fontPath", UpdateFonts)
 
     function FontHandler.Load()
         UpdateFonts()
@@ -131,13 +164,14 @@ do
 end
 
 
-local function OnAddonLoaded()
+local function LoadAddon()
     Config.LoadDB()
+    SlashCmdRegister.LoadSchema()
     SoundHandler.Load()
-    C_Timer.After(0, FontHandler.Load)
 
     Config.DBGlobal:SetVariable("lastLoadedVersion", env.VERSION_NUMBER)
     CallbackRegistry.Trigger("Preload.AddonReady")
 end
 
-CallbackRegistry.Add("WoWClient.OnAddonLoaded", OnAddonLoaded)
+CallbackRegistry.Add("WoWClient.OnAddonLoaded", LoadAddon)
+CallbackRegistry.Add("WoWClient.OnPlayerLogin", FontHandler.Load)

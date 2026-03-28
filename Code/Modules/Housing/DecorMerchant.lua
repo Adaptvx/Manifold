@@ -1,6 +1,6 @@
 local env = select(2, ...)
 local Config = env.Config
-local Utils_Blizzard = env.WPM:Import("wpm_modules\\utils\\blizzard")
+local Utils_Blizzard = env.modules:Import("packages\\utils\\blizzard")
 local function IsModuleEnabled() return Config.DBGlobal:GetVariable("DecorMerchant") == true end
 
 local CreateFrame = CreateFrame

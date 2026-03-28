@@ -1,7 +1,7 @@
 local env = select(2, ...)
 local Config = env.Config
-local SavedVariables = env.WPM:Import("wpm_modules\\saved-variables")
-local CallbackRegistry = env.WPM:Import("wpm_modules\\callback-registry")
+local SavedVariables = env.modules:Import("packages\\saved-variables")
+local CallbackRegistry = env.modules:Import("packages\\callback-registry")
 local function IsModuleEnabled() return Config.DBGlobal:GetVariable("DressingRoom") == true end
 
 local function OnLoad()
@@ -12,6 +12,7 @@ local function OnLoad()
     DressUpFrame.TitleContainer:EnableMouse(true)
     DressUpFrame.TitleContainer:RegisterForDrag("LeftButton")
     DressUpFrame.TitleContainer:HookScript("OnDragStart", function(self)
+        if not IsModuleEnabled() then return end
         if DressUpFrame:IsMovable() then
             SetCursor("Interface\\Cursor\\UI-Cursor-Move")
             DressUpFrame:StartMoving()
@@ -19,6 +20,7 @@ local function OnLoad()
         end
     end)
     DressUpFrame.TitleContainer:HookScript("OnDragStop", function(self)
+        if not IsModuleEnabled() then return end
         if DressUpFrame:IsMovable() then
             ResetCursor()
             DressUpFrame:StopMovingOrSizing()

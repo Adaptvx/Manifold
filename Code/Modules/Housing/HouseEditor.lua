@@ -1,6 +1,6 @@
 local env = select(2, ...)
-local CallbackRegistry = env.WPM:Import("wpm_modules\\callback-registry")
-local WoWClient = env.WPM:Import("wpm_modules\\wow-client")
+local CallbackRegistry = env.modules:Import("packages\\callback-registry")
+local WoWClient = env.modules:Import("packages\\wow-client")
 
 local IsAddOnLoaded = C_AddOns.IsAddOnLoaded
 local ActivateHouseEditorMode = C_HouseEditor.ActivateHouseEditorMode

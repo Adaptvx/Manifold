@@ -1,13 +1,13 @@
 local env = select(2, ...)
 local Config = env.Config
-local Path = env.WPM:Import("wpm_modules\\path")
-local UIFont = env.WPM:Import("wpm_modules\\ui-font")
-local UIKit = env.WPM:Import("wpm_modules\\ui-kit")
-local Frame, LayoutGrid, LayoutHorizontal, LayoutVertical, Text, ScrollView, LazyScrollView, ScrollBar, ScrollViewEdge, Input, LinearSlider, HitRect, List = unpack(UIKit.UI.Frames)
-local UIAnim = env.WPM:Import("wpm_modules\\ui-anim")
-local Utils_Texture = env.WPM:Import("wpm_modules\\utils\\texture")
-local GenericEnum = env.WPM:Import("wpm_modules\\generic-enum")
-local SavedVariables = env.WPM:Import("wpm_modules\\saved-variables")
+local Path = env.modules:Import("packages\\path")
+local UIFont = env.modules:Import("packages\\ui-font")
+local UIKit = env.modules:Import("packages\\ui-kit")
+local Frame, LayoutGrid, LayoutHorizontal, LayoutVertical, Text, ScrollContainer, LazyScrollContainer, ScrollBar, ScrollContainerEdge, Input, LinearSlider, HitRect, List = unpack(UIKit.UI.Frames)
+local UIAnim = env.modules:Import("packages\\ui-anim")
+local Utils_Texture = env.modules:Import("packages\\utils\\texture")
+local GenericEnum = env.modules:Import("packages\\generic-enum")
+local SavedVariables = env.modules:Import("packages\\saved-variables")
 local function IsModuleEnabled() return Config.DBGlobal:GetVariable("PlacedDecorList") == true end
 
 local IsAddOnLoaded = C_AddOns.IsAddOnLoaded
@@ -15,16 +15,16 @@ local IsAddOnLoaded = C_AddOns.IsAddOnLoaded
 local function OnLoad()
     local PlacedDecorList = HouseEditorFrame.ExpertDecorModeFrame.PlacedDecorList
 
-    Utils_Texture.Preload(Path.Root .. "\\Art\\Housing\\HouseUI.png")
-    local ATLAS = UIKit.Define.Texture_Atlas{ path = Path.Root .. "\\Art\\Housing\\HouseUI.png", inset = 0, scale = 1 }
-    local UIDef = {
+    Utils_Texture.Preload(Path.Root .. "\\Art\\Housing\\HouseUI")
+    local ATLAS = UIKit.Define.Texture_Atlas{ path = Path.Root .. "\\Art\\Housing\\HouseUI", inset = 0, scale = 1 }
+    local UIDEF = {
         PlacementCost = ATLAS{ left = 0 / 256, right = 32 / 256, top = 0 / 256, bottom = 32 / 256 },
         Resize        = ATLAS{ left = 0 / 256, right = 32 / 256, top = 32 / 256, bottom = 64 / 256 }
     }
 
     do --Append placement cost to each decor list entry
         local COLOR_NORMAL = UIKit.Define.Color_HEX{ hex = "ff7B7B7B" }
-        local COLOR_HIGHLIGHTED = GenericEnum.ColorRGB255.NormalText
+        local COLOR_HIGHLIGHTED = GenericEnum.ColorRGB255.Normal
 
         local ListInfoMixin = {}
 
@@ -47,7 +47,7 @@ local function OnLoad()
                     Frame(name .. ".Icon")
                         :id("Icon", id)
                         :size(12, 12)
-                        :background(UIDef.PlacementCost),
+                        :background(UIDEF.PlacementCost),
 
                     Text(name .. ".Text")
                         :id("Text", id)
@@ -118,7 +118,7 @@ local function OnLoad()
                     Frame("ResizeButton.Background")
                         :size(20, 20)
                         :point(UIKit.Enum.Point.BottomRight)
-                        :background(UIDef.Resize)
+                        :background(UIDEF.Resize)
                 })
                 :parent(PlacedDecorList)
                 :size(20, 20)
