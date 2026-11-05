@@ -96,7 +96,8 @@ function UIKit_Renderer_Cleaner.IsBatching()
 end
 
 local function ProcessForwardPass(frame, actions)
-    if band(actions, ACTION_SIZE_STATIC) ~= 0 then Processor_SizeStatic(frame) end
+    local wasStretched = frame:ResetLayoutStretch()
+    if wasStretched or band(actions, ACTION_SIZE_STATIC) ~= 0 then Processor_SizeStatic(frame) end
     if band(actions, ACTION_SIZE_FILL) ~= 0 then Processor_SizeFill(frame) end
     if band(actions, ACTION_POSITION_OFFSET) ~= 0 then Processor_PositionOffset(frame) end
     if band(actions, ACTION_ANCHOR) ~= 0 then Processor_Anchor(frame) end
@@ -109,7 +110,11 @@ local function ProcessBackwardPass(frame, actions)
 end
 
 function UIKit_Renderer_Cleaner.Wash()
-    if UIKit_Renderer_Cleaner.onCooldown or dirtyCount == 0 then return end
+    if dirtyCount == 0 then return end
+    if UIKit_Renderer_Cleaner.onCooldown then
+        washTimer:Start(0)
+        return
+    end
 
     UIKit_Renderer_Cleaner.onCooldown = true
     cooldownTimer:Start(0)

@@ -95,7 +95,7 @@ local function AddColoredLine(text, color)
 end
 
 local function AddQualityLine(text, quality)
-    local r, g, b = GetItemQualityColor(quality or 1)
+    local r, g, b = C_Item.GetItemQualityColor(quality or 1)
     GameTooltip:AddLine(text, r, g, b)
 end
 
@@ -215,7 +215,7 @@ do
         if rewardXP and rewardXP > 0 then
             AddColoredLine(EXPERIENCE_TEXT .. " " .. BreakUpLargeNumbers(rewardXP) .. GenericEnum.ColorHEX.GRAY_FONT_COLOR .. RewardUtil.GetQuestXPPercentText(rewardXP) .. "|r", COLOR_WHITE)
         end
-        if rewardMoney and rewardMoney > 0 then AddColoredLine(GetCoinTextureString(rewardMoney), COLOR_WHITE) end
+        if rewardMoney and rewardMoney > 0 then AddColoredLine(C_CurrencyInfo.GetCoinTextureString(rewardMoney), COLOR_WHITE) end
         if rewardHonor and rewardHonor > 0 then
             local honorTexture = (UnitFactionGroup("player") == PLAYER_FACTION_GROUP[0]) and "Interface\\Icons\\PVPCurrency-Honor-Horde" or "Interface\\Icons\\PVPCurrency-Honor-Alliance"
             AddColoredLine(FormatRewardLine(honorTexture, HONOR, rewardHonor), COLOR_WHITE)
